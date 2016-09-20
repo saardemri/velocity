@@ -24,6 +24,7 @@ node {
             usernameVariable: 'DOCKERHUB_USERNAME'
         ]]
     ) {
+         echo "username ${env.DOCKERHUB_USERNAME}"
         sh "docker login -u ${env.DOCKERHUB_USERNAME} -p ${env.DOCKERHUB_PASSWORD} -e saardemri@gmail.com"
         sh "docker push saardemri/velocity:${gitCommit()}"
     }
